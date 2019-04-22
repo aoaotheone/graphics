@@ -77,7 +77,7 @@ function Bezier() {
         scene.add(point)
         k++
     },100)
-    function draw(pos, points) {
+    function draw(t, points) {
         let l = points.length
         let p = []
         if (l === 1){
@@ -85,11 +85,11 @@ function Bezier() {
         }
         for (let i = 1; i < l; i++) {
             p.push([
-                (1 - pos)*points[i-1][0] + pos*points[i][0],
-                (1 - pos)*points[i-1][1] + pos*points[i][1]
+                (1 - t)*points[i-1][0] + t*points[i][0],
+                (1 - t)*points[i-1][1] + t*points[i][1]
             ])
         }
-        return draw(pos,p)
+        return draw(t,p)
     }
     // scene.add(new THREE.Mesh(g, m))
 }
